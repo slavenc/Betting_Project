@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Betting App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="content" ng-controller="mainCtrl">
+        <div class="league-item" ng-repeat="league in leagues.lige">
+            <div class="league-title">
+                <h1 ng-bind="league.naziv"></h1>
+            </div>
+            <div class="league-content" ng-repeat="types in league.razrade">
+                <div class="league-subtitle" >
+                    <div class="league-subtitle-wrapper">
+                        <span ng-repeat="type in types.tipovi" ng-bind="type.naziv"></span>
+                    </div>
+                </div>
+                
+                <div class="league-data">
+                    <div class="league-data-row" ng-repeat="offer in offers" ng-if="types.ponude.indexOf(offer.id) > -1">
+                        <span class="league-data-label-first" ng-bind="offer.broj"></span>
+                        <span class="league-data-label-second" ng-bind="offer.naziv"></span>
+                        <span class="league-data-label-third" ng-bind="offer.vrijeme | date: 'EEE - hh:mm a'"></span>
+                        <div class="league-data-label-fourth">
+                            <span class="outcome"
+                                ng-class="{'active': betslip.isSameOutcome(offer.id, bet.type.naziv)}"
+                                ng-repeat="outcomeType in types.tipovi"
+                                ng-init="bet = {}; bet.outcome = getOutcome(outcomeType.naziv, types.ponude, offer).toFixed(2) || '-'; bet.type = outcomeType;"
+                                ng-bind="bet.outcome"
+                                ng-click="addToBetslip(offer, bet)">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="sidebar" ng-controller="betslipCtrl">
+        <div class="league-title">
+            <h1>Betslip</h1>
+        </div>
+        <ul class="betslip-list">
+            <li class="betslip-list-item" ng-repeat="item in items.list">
+                <div class="betslip-list-item-label-first" ng-bind="item.number"></div>
+                <div class="betslip-list-item-label-second" ng-bind="item.name"></div>
+                <div class="betslip-list-item-label-third" ng-bind="item.time | date:'shortTime'"></div>
+                <div class="betslip-list-item-label-forth" ng-bind="item.outcome + ' - ' + item.value"></div>
+            </li>
+        </ul>
+        <div class="betslip-list-label-last">
+            Payout: <span ng-bind="items.payout"></span>
+        </div>
+        
+    </div>
+
+
+    <script src="app/angular.js"></script>
+    <script src="app/script.js"></script>
+</body>
+
+</html>

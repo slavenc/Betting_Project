@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#content {
+    width: 800px;
+    float: left;
+    font-size: 14px;
+}
+
+.active {
+    background-color: orangered;
+}
+
+.league-item {
+    margin: 5px 0;
+    overflow: hidden;
+}
+
+.league-title {
+    color: #fff;
+    background: linear-gradient(darkslategray, black);
+    font-size: 16px;
+    padding-left: 130px;
+    text-transform: uppercase;
+}
+
+.league-content {
+    float: left;
+    width: 100%;
+}
+
+.league-subtitle {
+    float: left;
+    width: 100%;
+    background-color: lightgray;
+    border: 1px solid #fff;
+    height: 18px;
+    line-height: 18px;
+}
+
+.league-subtitle-wrapper {
+    float: right;
+}
+
+.league-subtitle-wrapper span {
+    display: block;
+    float: left;
+    width: 50px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    text-align: center;
+}
+
+.league-data {
+    float: left;
+    background-color: silver;
+    width: 100%;
+}
+
+.league-data-row {
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #fff;
+}
+
+.league-data-row span {
+    display: block;
+    float: left;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    text-align: center;
+}
+
+.league-data-label-first {
+    width: 50px;
+    color: gray;
+}
+
+.league-data-label-second {
+    width: 276px;
+    text-align: left !important;
+    padding: 0 5px;
+}
+
+.league-data-label-third {
+    width: 122px;
+    color: gray;
+}
+
+.league-data-label-fourth {
+    float: right;
+}
+
+.outcome {
+    display: block;
+    float: left;
+    width: 50px;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.outcome:hover {
+    color: #fff;
+    background-color: darkslategray;
+}
+
+/* SIDEBAR */
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(220px);
+    margin-top: 5px;
+    background-color: gray;
+    color: #fff;
+    width: 420px;
+}
+
+#sidebar .league-title {
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.betslip-list {
+    width: 100%;
+    list-style: none;
+    font-size: 14px;
+}
+
+.betslip-list-item {
+    float: left;
+    width: 100%;
+    line-height: 30px;
+    border-top: 1px solid #fff;
+    color: #fff;
+}
+
+.betslip-list-item:last-child {
+    border-bottom: 1px solid #fff;
+}
+
+.betslip-list-item > div {
+    float: left;
+    border-right: 1px solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.betslip-list-item-label-first {
+    width: 30px;
+    text-align: center;
+}
+
+.betslip-list-item-label-second {
+    padding-left: 5px;
+    width: 220px;
+    height: 30px;
+}
+
+.betslip-list-item-label-third {
+    width: 70px;
+    text-align: center;
+    color: lightgray;
+}
+
+.betslip-list-item-label-forth {
+    width: 100px;
+    text-align: center;
+    text-decoration: underline;
+    border-right: 0 !important;
+}
+
+.betslip-list-label-last {
+    padding-left: 10px;
+    line-height: 30px;
+}
